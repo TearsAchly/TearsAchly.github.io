@@ -1,18 +1,17 @@
-const navLinks = document.querySelectorAll(".nav-link");
-const sections = document.querySelectorAll("section");
-const menuToggle = document.getElementById("menu-toggle");
-const nav = document.querySelector("nav");
+function resizeApp() {
+  const active = document.querySelector("section.active");
+  const app = document.getElementById("app");
 
-navLinks.forEach(link => {
-  link.addEventListener("click", e => {
-    e.preventDefault();
+  if (active) {
+    app.style.height = active.scrollHeight + "px";
+  }
+}
 
-    sections.forEach(sec => sec.classList.add("non-active"));
-    document.querySelector(link.getAttribute("href")).classList.remove("non-active");
+window.addEventListener("load", resizeApp);
+window.addEventListener("resize", resizeApp);
 
-    navLinks.forEach(l => l.classList.remove("active"));
-    link.classList.add("active");
-
-    nav.classList.remove("active");
+document.querySelectorAll(".nav-link").forEach(link => {
+  link.addEventListener("click", () => {
+    setTimeout(resizeApp, 50);
   });
 });

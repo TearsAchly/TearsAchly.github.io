@@ -25,7 +25,7 @@ html {
 }
 
 body {
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
 /* ================= HEADER ================= */
@@ -42,6 +42,7 @@ header {
   align-items: center;
   z-index: 100;
   backdrop-filter: blur(6px);
+  box-shadow: 0 0 20px #67bed9;
 }
 
 .logo {
@@ -73,14 +74,30 @@ nav a.active {
 
 /* ================= SPA LAYOUT ================= */
 
+main#app {
+  position: relative;
+  min-height: 100vh;
+}
+
 section {
+  position: absolute;
+  inset: 0;
+
   min-height: calc(100vh - 80px);
   padding: 110px 9% 5rem;
   background-color: #0d1117;
+  transform: scale(0.96);
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    transform 0.35s ease,
+    opacity 0.35s ease;
 }
 
-section.non-active {
-  display: none;
+section.active {
+  transform: scale(1);
+  opacity: 1;
+  pointer-events: auto;
 }
 
 /* ================= HOME ================= */
@@ -96,6 +113,22 @@ section.non-active {
 .home-content h1 {
   font-size: 6rem;
   line-height: 1.2;
+}
+
+.cube-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-8px);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .home-content h3 {
@@ -233,6 +266,7 @@ section.non-active {
 .service-item h3 {
   color: #b74b4b;
   font-size: 2.3rem;
+  min-height: 2rem;
   margin-bottom: 1rem;
 }
 
@@ -243,12 +277,10 @@ section.non-active {
 
 /* ================= SKILLS ================= */
 
-.skills {
+.skills-content {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 2.5rem;
-  align-content: start;
-  grid-auto-rows: min-content;
 }
 
 .skill-category {
@@ -270,34 +302,37 @@ section.non-active {
 
 .skill-category h3 {
   color: #b74b4b;
+  min-height: 2rem;
   font-size: 2.2rem;
   margin-bottom: 1.2rem;
 }
 
-.skill-category ul {
-  list-style: none;
-  font-size: 1.6rem;
-  padding-left: 0;
+.skill-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.8rem;
 }
 
-.skill-category li {
-  opacity: 0.85;
+.chip {
+  padding: 0.6rem 1.2rem;
+  font-size: 1.35rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: #e5e7eb;
+  transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
-.skill-icons {
-  background: rgba(255,255,255,0.03);
-  padding: 1rem;
-  border-radius: 0.8rem;
+.chip strong {
+  font-weight: 500;
 }
 
-
-
-.skill-icons img {
-  width: 100%;
-  max-width: 100%;
-  display: block;
-  padding: 0 8px;
-  box-sizing: border-box;
+.chip:hover {
+  background: rgba(183, 75, 75, 0.18);
+  border-color: #b74b4b;
+  color: #fff;
+  transform: translateY(-1px);
 }
 
 /* ================= EDUCATION & EXPERIENCE ================= */
@@ -373,7 +408,7 @@ footer {
 
   nav {
     position: fixed;
-    top: 70px; 
+    top: 70px;
     right: -100%;
     width: 60%;
     height: calc(100vh - 70px);
@@ -384,6 +419,7 @@ footer {
     align-items: center;
     transition: 0.35s ease;
     backdrop-filter: blur(10px);
+    z-index: 1001;
   }
 
   nav.active {
@@ -394,7 +430,6 @@ footer {
     font-size: 2.2rem;
     margin: 2rem 0;
   }
-  
 
   section {
     padding-top: 100px; /* lebih besar dari header */
@@ -437,5 +472,21 @@ footer {
     display: block;
     padding: 0 8px;
     box-sizing: border-box;
+  }
+
+  main#app {
+    margin-top: 2rem;
+    flex: 1;
+    position: relative;
+    overflow-y: auto; /* ⬅️ SCROLL DI SINI */
+    -webkit-overflow-scrolling: touch;
+    min-height: calc(100vh - 70px); /* tinggi layar - header */
+  }
+
+  @media (max-width: 600px) {
+    .chip {
+      font-size: 1.25rem;
+      padding: 0.5rem 1rem;
+    }
   }
 }

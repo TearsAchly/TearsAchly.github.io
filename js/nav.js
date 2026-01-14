@@ -1,5 +1,5 @@
 const navLinks = document.querySelectorAll(".nav-link");
-const sections = document.querySelectorAll("section");
+const sections = document.querySelectorAll("main#app section");
 const menuToggle = document.getElementById("menu-toggle");
 const nav = document.querySelector("nav");
 
@@ -7,19 +7,20 @@ navLinks.forEach(link => {
   link.addEventListener("click", e => {
     e.preventDefault();
 
-    const target = link.getAttribute("href");
+    const targetId = link.getAttribute("href");
+    const targetSection = document.querySelector(targetId);
 
-    // hide all
-    sections.forEach(sec => sec.classList.add("non-active"));
+    // hide all sections
+    sections.forEach(sec => sec.classList.remove("active"));
 
-    // show selected
-    document.querySelector(target).classList.remove("non-active");
+    // show target section
+    targetSection.classList.add("active");
 
-    // active link
-    navLinks.forEach(n => n.classList.remove("active"));
+    // nav active state
+    navLinks.forEach(l => l.classList.remove("active"));
     link.classList.add("active");
 
-    // close mobile menu
+    // close mobile nav
     nav.classList.remove("active");
   });
 });
@@ -30,6 +31,7 @@ menuToggle.addEventListener("click", e => {
   nav.classList.toggle("active");
 });
 
+// close nav when click outside
 document.addEventListener("click", e => {
   if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
     nav.classList.remove("active");
