@@ -35,7 +35,6 @@ main#app {
   -webkit-overflow-scrolling: touch;
 }
 
-
 /* ================= HEADER ================= */
 
 header {
@@ -88,17 +87,16 @@ section {
   display: none;
   opacity: 0;
   transform: scale(0.98);
-  transition: opacity 0.35s ease, transform 0.35s ease;
+  transition:
+    opacity 0.35s ease,
+    transform 0.35s ease;
 }
-
 
 section.active {
   display: block;
   opacity: 1;
   transform: scale(1);
 }
-
-
 
 /* ================= HOME ================= */
 
@@ -110,7 +108,6 @@ section#home.home.active {
   background-color: #0d1117;
   min-height: calc(100vh - 70px);
 }
-
 
 .home-content h1 {
   font-size: 6rem;
@@ -313,19 +310,17 @@ section#home.home.active {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
-  background:rgba(255,255,255,0.03);
-  padding:1rem;
-  border-radius:0.8rem;
-  
+  background: rgba(255, 255, 255, 0.03);
+  padding: 1rem;
+  border-radius: 0.8rem;
 }
 
 .skill-chips h4 {
-display:block;
-width:100%;
-font-size:1.7rem;
-color:#2596be;
+  display: block;
+  width: 100%;
+  font-size: 1.7rem;
+  color: #2596be;
 }
-
 
 .chip {
   padding: 0.6rem 1.2rem;
