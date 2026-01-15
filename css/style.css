@@ -28,6 +28,14 @@ body {
   overflow: hidden;
 }
 
+main#app {
+  position: relative;
+  height: 100vh;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+
 /* ================= HEADER ================= */
 
 header {
@@ -74,41 +82,35 @@ nav a.active {
 
 /* ================= SPA LAYOUT ================= */
 
-main#app {
-  position: relative;
-  min-height: 100vh;
-}
-
 section {
-  position: absolute;
-  inset: 0;
-
-  min-height: calc(100vh - 80px);
+  min-height: auto;
   padding: 110px 9% 5rem;
-  background-color: #0d1117;
-  transform: scale(0.96);
+  display: none;
   opacity: 0;
-  pointer-events: none;
-  transition:
-    transform 0.35s ease,
-    opacity 0.35s ease;
+  transform: scale(0.98);
+  transition: opacity 0.35s ease, transform 0.35s ease;
 }
+
 
 section.active {
-  transform: scale(1);
+  display: block;
   opacity: 1;
-  pointer-events: auto;
+  transform: scale(1);
 }
+
+
 
 /* ================= HOME ================= */
 
-.home {
+section#home.home.active {
   display: flex;
   justify-content: center;
   align-items: center;
   gap: 8rem;
   background-color: #0d1117;
+  min-height: calc(100vh - 70px);
 }
+
 
 .home-content h1 {
   font-size: 6rem;
@@ -311,7 +313,19 @@ section.active {
   display: flex;
   flex-wrap: wrap;
   gap: 0.8rem;
+  background:rgba(255,255,255,0.03);
+  padding:1rem;
+  border-radius:0.8rem;
+  
 }
+
+.skill-chips h4 {
+display:block;
+width:100%;
+font-size:1.7rem;
+color:#2596be;
+}
+
 
 .chip {
   padding: 0.6rem 1.2rem;
@@ -382,11 +396,11 @@ section.active {
 /* ================= FOOTER ================= */
 
 footer {
-  background: linear-gradient(to top, #0d1117, rgba(13, 17, 23, 0.75));
   text-align: center;
   padding: 2.5rem 0;
   font-size: 1.4rem;
   opacity: 0.8;
+  background: linear-gradient(to bottom, #0d1117, rgba(13, 17, 23, 0.75));
 }
 
 /* ================= MOBILE ================= */
@@ -472,15 +486,6 @@ footer {
     display: block;
     padding: 0 8px;
     box-sizing: border-box;
-  }
-
-  main#app {
-    margin-top: 2rem;
-    flex: 1;
-    position: relative;
-    overflow-y: auto; /* ⬅️ SCROLL DI SINI */
-    -webkit-overflow-scrolling: touch;
-    min-height: calc(100vh - 70px); /* tinggi layar - header */
   }
 
   @media (max-width: 600px) {
