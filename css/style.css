@@ -33,6 +33,10 @@ main#app {
   height: 100vh;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto; 
 }
 
 /* ================= HEADER ================= */
@@ -52,10 +56,8 @@ header {
   box-shadow: 0 0 20px #67bed9;
 }
 
-.logo {
-  font-size: 3rem;
-  color: #2596be;
-  font-weight: 800;
+header .logo img{
+width:4rem;
 }
 
 .menu-toggle {
@@ -84,6 +86,7 @@ nav a.active {
 section {
   min-height: auto;
   padding: 110px 9% 5rem;
+  margin-top:2em;
   display: none;
   opacity: 0;
   transform: scale(0.98);
@@ -396,6 +399,11 @@ footer {
   font-size: 1.4rem;
   opacity: 0.8;
   background: linear-gradient(to bottom, #0d1117, rgba(13, 17, 23, 0.75));
+  margin-top: auto;
+  padding: 2rem 0;
+  text-align: center;
+  opacity: 0.6;
+  box-shadow: 0  0 40px #67bed9;
 }
 
 /* ================= MOBILE ================= */
@@ -452,6 +460,7 @@ footer {
     align-items: center;
     gap: 3rem;
     text-align: center;
+    margin-top:5rem;
   }
 
   .home-content h1 {
