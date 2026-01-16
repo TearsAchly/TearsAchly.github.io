@@ -180,6 +180,38 @@ nav a.active {
   border-bottom: 3px solid #3d84df;
 }
 
+.logo {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+
+.theme-hint {
+  position: absolute;
+  top: 50%;
+  left: 5rem;
+  transform: translateY(-50%) translateX(-6px);
+  background: var(--bg-secondary);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 6px 12px;
+  border-radius: 999px;
+  font-size: 1.2rem;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition:
+    opacity 0.55s ease,
+    transform 0.55s ease;
+}
+
+.logo:hover .theme-hint {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+
 /* ================= SPA LAYOUT ================= */
 
 section {
@@ -219,15 +251,20 @@ section#home.home.active {
 .home-content h3 {
   font-size: 4rem;
   margin-bottom: 1.5rem;
-  color:var(--text-2)
+  color:var(--text-1)
 }
 
 .home-content h3 #typing {
+color:var(--text-1)
 }
 
 .home-content p {
   font-size: 2rem;
   opacity: 0.9;
+}
+
+.home-content p strong{
+  color:var(--text-1)
 }
 
 .home-img img {

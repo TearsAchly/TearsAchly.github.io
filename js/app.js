@@ -222,3 +222,15 @@ if (!localStorage.getItem("theme")) {
     prefersLight ? "light" : "dark"
   );
 }
+
+const hint = document.querySelector(".theme-hint");
+const toggle = document.getElementById("theme-toggle");
+
+toggle.addEventListener("click", () => {
+  if (hint) {
+    hint.textContent = "Theme switched!";
+    setTimeout(() => {
+      hint.style.opacity = "0";
+    }, 3000);
+  }
+});
