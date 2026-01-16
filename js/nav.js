@@ -1,64 +1,125 @@
+/* =========================================================
+ * SPA Navigation Controller
+ * - Handle section switching
+ * - Mobile navigation
+ * - Lazy load GitHub projects
+ * ========================================================= */
+
+/* ================= DOM REFERENCES ================= */
+
 const navLinks = document.querySelectorAll(".nav-link");
 const sections = document.querySelectorAll("main#app section");
 const app = document.getElementById("app");
 const menuToggle = document.getElementById("menu-toggle");
 const nav = document.querySelector("nav");
 
-/* ================= NAV CLICK ================= */
+/* =========================================================
+ * Helpers
+ * ========================================================= */
+
+/**
+ * Reset scroll position (fix home glitch & mobile issues)
+ */
+const resetScroll = () => {
+  app.scrollTop = 0;
+  requestAnimationFrame(() => {
+    app.scrollTop = 0;
+  });
+};
+
+/**
+ * Hide all sections
+ */
+const hideAllSections = () => {
+  sections.forEach(section => {
+    section.classList.remove("active");
+    section.style.display = "none";
+  });
+};
+
+/**
+ * Show target section
+ * @param {HTMLElement} section
+ * @param {string} id
+ */
+const showSection = (section, id) => {
+  section.style.display = id === "#home" ? "flex" : "block";
+  section.classList.add("active");
+};
+
+/**
+ * Update active nav link
+ * @param {HTMLElement} activeLink
+ */
+const setActiveNav = activeLink => {
+  navLinks.forEach(link => link.classList.remove("active"));
+  activeLink.classList.add("active");
+};
+
+/**
+ * Close mobile navigation
+ */
+const closeMobileNav = () => {
+  nav.classList.remove("active");
+};
+
+/* =========================================================
+ * Navigation Click Handler
+ * ========================================================= */
+
 navLinks.forEach(link => {
   link.addEventListener("click", e => {
     e.preventDefault();
 
     const targetId = link.getAttribute("href");
-    if (!targetId || !targetId.startsWith("#")) return;
+    if (!targetId?.startsWith("#")) return;
 
     const targetSection = document.querySelector(targetId);
     if (!targetSection) return;
 
-    /* 🔥 FIX UTAMA — RESET SCROLL PALING AWAL */
-    app.scrollTop = 0;
+    /* Reset scroll FIRST (important for home layout) */
+    resetScroll();
 
-    /* MATIKAN SEMUA SECTION */
-    sections.forEach(sec => {
-      sec.classList.remove("active");
-      sec.style.display = "none";
-    });
+    /* Hide all sections */
+    hideAllSections();
 
-    /* PAKSA BROWSER COMMIT LAYOUT */
+    /* Force browser layout reflow */
     app.getBoundingClientRect();
 
-    /* AKTIFKAN TARGET */
-    if (targetId === "#home") {
-      targetSection.style.display = "flex"; // home pakai flex
-    } else {
-      targetSection.style.display = "block";
+    /* Show selected section */
+    showSection(targetSection, targetId);
+
+    /* Lazy-load GitHub repos only when Projects opened */
+    if (
+      targetId === "#projects" &&
+      typeof window.loadGitHubRepos === "function"
+    ) {
+      window.loadGitHubRepos();
     }
 
-    targetSection.classList.add("active");
+    /* Update nav active state */
+    setActiveNav(link);
 
-    /* RESET SCROLL SEKALI LAGI (ANTI GLITCH) */
-    requestAnimationFrame(() => {
-      app.scrollTop = 0;
-    });
-
-    /* NAV ACTIVE STATE */
-    navLinks.forEach(l => l.classList.remove("active"));
-    link.classList.add("active");
-
-    /* CLOSE MOBILE NAV */
-    nav.classList.remove("active");
+    /* Close mobile menu */
+    closeMobileNav();
   });
 });
 
-/* ================= MOBILE TOGGLE ================= */
+/* =========================================================
+ * Mobile Menu Toggle
+ * ========================================================= */
+
 menuToggle.addEventListener("click", e => {
   e.stopPropagation();
   nav.classList.toggle("active");
 });
 
-/* ================= CLOSE NAV ON OUTSIDE CLICK ================= */
+/* =========================================================
+ * Close Menu on Outside Click
+ * ========================================================= */
+
 document.addEventListener("click", e => {
   if (!nav.contains(e.target) && !menuToggle.contains(e.target)) {
-    nav.classList.remove("active");
+    closeMobileNav();
   }
 });
