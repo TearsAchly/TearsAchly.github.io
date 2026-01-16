@@ -11,24 +11,24 @@ let languageColors = null;
  * @returns {Promise<Object>} language -> color mapping
  */
 const loadLanguageColors = async () => {
-  // gunakan cache di memory jika sudah ada
+  // Cache di memory
   if (languageColors) return languageColors;
 
-  // cek cache localStorage
+  // Cache di localStorage
   const cached = localStorage.getItem("gh_lang_colors");
   if (cached) {
     languageColors = JSON.parse(cached);
     return languageColors;
   }
 
-  // fetch dari GitHub Linguist mirror
+  // Fetch dari GitHub Linguist mirror
   const res = await fetch(
     "https://raw.githubusercontent.com/ozh/github-colors/master/colors.json"
   );
 
   const json = await res.json();
 
-  // simpan cache
+  // Simpan cache
   localStorage.setItem("gh_lang_colors", JSON.stringify(json));
   languageColors = json;
 
@@ -39,7 +39,6 @@ const loadLanguageColors = async () => {
  * GitHub Repositories Loader
  * - Fetch repos
  * - Cache repos
- * - Render projects
  * ========================================================= */
 
 /**
@@ -49,7 +48,7 @@ window.loadGitHubRepos = async () => {
   const container = document.getElementById("repo-list");
   if (!container) return;
 
-  // cek cache repos
+  // Cache repos
   const cached = localStorage.getItem("github_repos");
   if (cached) {
     renderRepos(JSON.parse(cached));
@@ -67,7 +66,7 @@ window.loadGitHubRepos = async () => {
 
     const repos = await res.json();
 
-    // simpan cache repos
+    // Simpan cache repos
     localStorage.setItem("github_repos", JSON.stringify(repos));
 
     renderRepos(repos);
@@ -90,17 +89,17 @@ const renderRepos = async (repos) => {
   const container = document.getElementById("repo-list");
   container.innerHTML = "";
 
-  // load language colors
+  // Load language colors
   const colors = await loadLanguageColors();
 
-  // daftar repo yang tidak ditampilkan
+  // Repo yang disembunyikan
   const HIDDEN_REPOS = [
     "TearsAchly",
-    "TearsAchly.github.io"
+    "TearsAchly.github.io",
+    "Simple-Notes"
   ];
 
   repos
-    // filter repo
     .filter(
       repo => !repo.fork && !HIDDEN_REPOS.includes(repo.name)
     )
@@ -108,17 +107,17 @@ const renderRepos = async (repos) => {
       const card = document.createElement("div");
       card.className = "repo-card github";
 
-      // language & color
+      // Language & color
       const language = repo.language;
       const color = colors?.[language]?.color || "#8b949e";
 
-      // format tanggal update
+      // Format tanggal update
       const updated = new Date(repo.updated_at).toLocaleDateString(
         "en-US",
         { month: "short", day: "numeric", year: "numeric" }
       );
 
-      // card template
+      // Card template
       card.innerHTML = `
         <div class="repo-header">
           <a class="repo-name" href="${repo.html_url}" target="_blank">
@@ -150,3 +149,76 @@ const renderRepos = async (repos) => {
       container.appendChild(card);
     });
 };
+
+/* =========================================================
+ * Manual Refresh (Clear Cache + Reload)
+ * ========================================================= */
+
+const refreshRepos = async () => {
+  const btn = document.querySelector(".refresh-btn");
+  const container = document.getElementById("repo-list");
+
+  // UI state (loading)
+  btn.disabled = true;
+  btn.innerHTML = "<p>⟳ Syncing...</p>";
+  container.innerHTML = "<p>Syncing repositories...</p>";
+
+  // Clear cache
+  localStorage.removeItem("github_repos");
+
+  // Delay (UX feedback)
+  await new Promise(resolve => setTimeout(resolve, 3000));
+
+  // Reload repos
+  await loadGitHubRepos();
+
+  // Reset button
+  btn.disabled = false;
+  btn.innerHTML = "<p>⟳ Refresh Project</p>";
+};
+
+/* =========================================================
+ * Theme Toggle (Dark / Light ala GitHub)
+ * ========================================================= */
+
+const toggleBtn = document.getElementById("theme-toggle");
+const root = document.documentElement;
+
+// Load saved theme (default: dark)
+const savedTheme = localStorage.getItem("theme") || "dark";
+root.setAttribute("data-theme", savedTheme);
+
+// Set initial icon
+toggleBtn.innerHTML =
+  savedTheme === "light"
+    ? '<i class="fa-solid fa-moon"></i>'
+    : '<i class="fa-solid fa-sun"></i>';
+
+// Toggle theme
+toggleBtn.addEventListener("click", () => {
+  const current = root.getAttribute("data-theme");
+  const next = current === "dark" ? "light" : "dark";
+
+  root.setAttribute("data-theme", next);
+  localStorage.setItem("theme", next);
+
+  toggleBtn.innerHTML =
+    next === "light"
+      ? '<i class="fa-solid fa-moon"></i>'
+      : '<i class="fa-solid fa-sun"></i>';
+});
+
+/* =========================================================
+ * System Theme Fallback (First Visit)
+ * ========================================================= */
+
+if (!localStorage.getItem("theme")) {
+  const prefersLight = window.matchMedia(
+    "(prefers-color-scheme: light)"
+  ).matches;
+
+  root.setAttribute(
+    "data-theme",
+    prefersLight ? "light" : "dark"
+  );
+}

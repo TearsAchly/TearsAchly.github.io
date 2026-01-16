@@ -10,10 +10,8 @@
  
 const initTyping = () => {
   const texts = [
-    "Full Stack Web Developer",
-    "Computer Technician",
-    "Cybersecurity Enthusiast",
-    "Bug Hunter"
+    "Full Stuck Developer",
+    "Security & Systems Enthusiast",
   ];
 
   let textIndex = 0;   // current text index
