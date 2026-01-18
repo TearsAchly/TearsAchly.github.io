@@ -123,9 +123,9 @@ const renderRepos = async (repos) => {
           <a class="repo-name" href="${repo.html_url}" target="_blank">
             ${repo.name}
           </a>
-          <span class="repo-badge ${repo.private ? "private" : ""}">
+          <!-- <span class="repo-badge ${repo.private ? "private" : ""}">
             ${repo.private ? "Private" : "Public"}
-          </span>
+          </span> -->
         </div>
 
         <p class="repo-desc">

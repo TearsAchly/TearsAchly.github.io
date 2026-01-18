@@ -586,6 +586,8 @@ section#home.home.active {
 .education-item h3,
 .experience-item h3 {
   font-size: 2.1rem;
+  min-height:calc(1em * 3);
+  flex-wrap:wrap;
   margin-bottom: 1rem;
   color: var(--text-1);
 }
@@ -753,14 +755,19 @@ footer {
 
   .repo-card.github {
     width: 100%;
-    min-width: 0; /* ⬅️ PENTING */
+    position:relative;
+    /* display:flex; */
+    /* align-items:flex-start; */
+    /* justify-content:center; */
+    min-width: 0;
     box-sizing: border-box;
     padding: 1.4rem;
   }
 
   .repo-name {
-    font-size: 3rem;
+    font-size: 2.5rem;
     flex-wrap: wrap;
+    min-height: calc(1.2em * 2 );
   }
 
   .repo-desc {
@@ -772,8 +779,10 @@ footer {
     font-size: 2rem;
     gap: 1rem;
     flex-wrap: wrap;
+
   }
-}
+
+  .repo-badge { font-size: 1.5rem; padding: 2px 8px; border-radius: 999px; border: 1px solid #30363d; }
 
 .skills-content {
   display: grid;
