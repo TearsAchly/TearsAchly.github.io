@@ -1,0 +1,32 @@
+section.section-notes div.container {
+  display: flex;
+  flex-grow: 1;
+  align-items: stretch;
+  min-height: calc(100vh - 5rem);
+  padding: 3% 9%;
+  gap: 2rem;
+}
+
+section.section-notes div.container div.wrapper-notes {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.notes-cat-title {
+  font-size: 2rem;
+}
+
+.notes-item {
+  font-size: 1.5rem;
+  gap: 1.5rem;
+  margin: 1.5rem;
+}
+
+.notes-ol {
+  gap: 1.5rem;
+}
+
+.notes-status {
+  display: none;
+}

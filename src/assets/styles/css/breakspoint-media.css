@@ -1,0 +1,79 @@
+@media (max-width: 575.98px) {
+  .wrapper-left,
+  .wrapper-right,
+  .wrapper-title-left,
+  .social-items-left {
+    border: none;
+  }
+  section.section-achievements div.container,
+  section.section-home div.container {
+    padding: 1%;
+    margin: 0;
+  }
+}
+
+@media (max-width: 767.98px) {
+}
+
+@media (max-width: 810px) {
+  section.section-home div.container {
+    flex-direction: column;
+  }
+
+  .repo-list,
+  .education-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 2rem;
+  }
+
+  div.wrapper-left,
+  div.wrapper-achv,
+  div.wrapper-notes {
+    padding-top: calc(7.5rem + 3%);
+  }
+  .navbar {
+    display: none;
+  }
+
+  .header {
+    position: fixed;
+  }
+
+  nav {
+    position: fixed;
+    top: 6.9rem;
+    height: 100vh;
+    right: -100%;
+    width: 60%;
+    display: flex;
+    transition: 0.35s ease;
+    backdrop-filter: blur(10px);
+    z-index: 1001;
+  }
+
+  .menu-toggle {
+    display: block;
+  }
+
+  .navbar-lists {
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: auto;
+  }
+
+  nav ul li button {
+    font-size: 2.2rem;
+    margin: 2rem 0;
+    position: relative;
+  }
+}
+
+@media (max-width: 991.98px) {
+}
+
+@media (max-width: 1199.98px) {
+}
+
+@media (max-width: 1399.98px) {
+}

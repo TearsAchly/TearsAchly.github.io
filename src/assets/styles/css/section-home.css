@@ -1,0 +1,114 @@
+section.section-home div.container {
+  display: flex;
+  flex-grow: 1;
+  align-items: stretch;
+  min-height: calc(100vh - 5rem);
+  padding: 3% 9%;
+  gap: 2rem;
+}
+
+.wrapper-left {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+  padding: 2rem;
+  border-radius: 2em;
+}
+
+.photo {
+  max-width: 60%;
+  margin: auto;
+  border-radius: 50%;
+}
+
+.wrapper-title-left {
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  gap: 1rem;
+}
+
+.h1-title-home-left {
+  font-size: 3rem;
+}
+
+.h2-title-home-left {
+  font-size: 1.5rem;
+}
+
+.social-items-left {
+  display: flex;
+  padding: 1rem;
+  border-radius: 0.8rem;
+  width: 100%;
+  gap: 1rem;
+  flex-direction: column;
+}
+
+li.social-item-left a {
+  text-decoration: none;
+  font-size: 2rem;
+}
+
+li.social-item-left a:hover {
+}
+
+li.social-item-left a span {
+  text-decoration: none;
+  font-size: 1.5rem;
+  width: 100%;
+}
+
+li.social-item-left a span:hover {
+}
+.btn-cv {
+  padding: 1rem 2.8rem;
+  border-radius: 0.8rem;
+  font-size: 1.6rem;
+  transition: 0.3s ease;
+  letter-spacing: 0.1rem;
+}
+
+.btn-cv:hover {
+}
+
+.wrapper-right {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  gap: 1rem;
+  align-items: start;
+  padding: 2rem;
+  border-radius: 2em;
+  width: 100%;
+}
+
+.h1-title-home {
+  font-size: 1.5rem;
+  width: 100%;
+  padding-bottom: 0.4em;
+}
+
+.wrapper-about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  width: 100%;
+  border-radius: 0.8rem;
+  padding: 1rem;
+}
+
+.h1-title-about-right {
+  font-size: 2.5rem;
+}
+
+.h2-title-about-right {
+  font-size: 2rem;
+}
+
+.text-home-right {
+  font-size: 1.5rem;
+}

@@ -1,0 +1,59 @@
+/* ================= THEME VARIABLES ================= */
+
+:root {
+  --bg: #0d1117;
+  --hf: #010409;
+  --link: #58a6ff;
+  --border: #30363d;
+  --text-1: #ffffff;
+  --text-muted: #8b949e;
+}
+
+html[data-theme="light"] {
+  --bg: #ffffff;
+  --hf: #f6f8fa;
+  --link: #0969da;
+  --border: #d0d7de;
+  --text-1: #0d1117;
+  --text-muted: #57606a;
+}
+
+/* ================= THEME VARIABLES ================= */
+
+body {
+  background-color: var(--bg);
+}
+
+.hf {
+  background-color: var(--hf);
+}
+
+.hover:hover {
+  border: 1px solid var(--link);
+}
+
+header.hf {
+  border-bottom: 0.3rem solid var(--border);
+}
+
+footer.hf {
+  border-top: 0.3rem solid var(--border);
+}
+
+.text-muted {
+  color: var(--text-muted);
+}
+
+.text-1 {
+  color: var(--text-1);
+}
+
+.link {
+  color: var(--link);
+  text-decoration: none;
+}
+
+.border {
+  background-color: inherit;
+  border: 1px solid var(--border);
+}

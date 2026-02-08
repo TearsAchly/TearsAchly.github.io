@@ -1,0 +1,57 @@
+<div class="container">
+  <div class="wrapper-achv">
+    <button class="refresh-btn github border text-1">⟳ Refresh</button>
+
+    <div class="repo-section learnings">
+      <h2 class="h2-title-repo-section text-1">What I learned</h2>
+      <div id="repo-learnings" class="repo-list"></div>
+    </div>
+
+    <div class="repo-section projects">
+      <h2 class="h2-title-repo-section text-1">Projects</h2>
+      <div id="repo-projects" class="repo-list"></div>
+    </div>
+
+    <div class="education-nonformal" id="certificates">
+      <h2 class="h2-title-repo-section text-1">Certificates</h2>
+      <div class="education-grid" id="certificates-grid"></div>
+      <button id="certificates-toggle" class="border text-1 waka-toggle hover">
+        View All
+      </button>
+    </div>
+
+    <div class="repo-section projects">
+      <h2 class="h2-title-repo-section text-1">Wakatime</h2>
+      <div id="repo-projects" class="repo-list"></div>
+      <div class="wrapper-wakatime border hover">
+        <div class="wrapper-wakatime-right">
+          <span class="wrapper-title-right">
+            <h2 class="h2-title-wakatime-right text-muted">
+              Coding Activity Over All Time (Powered by
+              <a class="link" href="https://wakatime.com/@TearsAchly">
+                Wakatime.com
+              </a>
+            </h2>
+            <h2
+              class="h2-title-wakatime-right text-muted"
+              class="total"
+              id="total"
+            >
+              Loading ...
+            </h2>
+          </span>
+          <div id="bar" class="bar"></div>
+          <div id="status" class="status text-muted">Loading ...</div>
+          <div id="list" class="grid" style="display: none"></div>
+        </div>
+      </div>
+      <button
+        id="wakaToggle"
+        class="waka-toggle border text-1 hover"
+        type="button"
+      >
+        Show more
+      </button>
+    </div>
+  </div>
+</div>

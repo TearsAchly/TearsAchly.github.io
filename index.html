@@ -1,60 +1,63 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>TearsAchly</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="icon" type="image/svg+xml" href="/style/images/favicon.svg" />
-
+    <link rel="icon" type="image/svg+xml" href="/src/images/favicon.svg" />
+    <title>TearsAchly</title>
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
     />
-    <link rel="stylesheet" href="/style/css/style.css" />
+    <link rel="stylesheet" href="src/assets/styles/css/styles.css" />
   </head>
+  <body class="body">
+    <!-- LOADER -->
+    <div id="page-loader" class="page-loader">
+      <img
+        id="logo-loading"
+        class="logo-loading"
+        src="https://github.githubassets.com/assets/mona-loading-dark-7701a7b97370.gif"
+        alt="Loading..."
+      />
+    </div>
 
-  <body>
-    <header>
-      <a href="#" class="logo theme-toggle" aria-label="Toggle theme">
-  <img
-    id="theme-toggle"
-    src="https://github.githubassets.com/assets/mona-loading-dark-7701a7b97370.gif"
-    alt="Theme Toggle"
-  />
-  <span class="theme-hint">Change theme</span>
-</a>
-
-
-      <button id="menu-toggle" class="menu-toggle">
-        <i class="fa fa-bars"></i>
+    <header class="header hf">
+      <button id="theme-toggle" class="btn link border" type="button">
+        🌙 Dark
       </button>
 
-      <nav>
-        <a href="#home" class="nav-link active">Home</a>
-        <a href="#projects" class="nav-link">Projects</a>
-        <!--<a href="#services" class="nav-link">Services</a>-->
-        <a href="#skills" class="nav-link">Skills</a>
-        <a href="#education" class="nav-link">Educations</a>
-        <a href="#experience" class="nav-link">Experiences</a>
+      <button id="menu-toggle" class="menu-toggle nav-btn-toggle border link">
+        <i class="fa fa-bars"></i>
+      </button>
+      <nav class="navbar">
+        <ul class="navbar-lists">
+          <li class="navbar-item">
+            <button class="nav-link-btn active link border" data-page="home">
+              Home
+            </button>
+          </li>
+          <li class="navbar-item">
+            <button class="nav-link-btn link border" data-page="achievements">
+              Achievements
+            </button>
+          </li>
+          <li class="navbar-item">
+            <button class="nav-link-btn link border" data-page="notes">
+              Notes
+            </button>
+          </li>
+        </ul>
       </nav>
     </header>
-
-    <main id="app">
-      <section id="home" class="home active"></section>
-      <br>
-      <section id="projects" class="projects"></section>
-      <!--<section id="services" class="services"></section>-->
-      <section id="skills" class="skills"></section>
-      <section id="education" class="education"></section>
-      <section id="experience" class="experience"></section>
-      <footer class="active">
-        <p>Built slowly, with curiosity. © 2026 Achyy</p>
-      </footer>
+    <main class="main" id="main">
+      <section class="section-home active" id="home"></section>
+      <section class="section-achievements" id="achievements"></section>
+      <section class="section-notes" id="notes"></section>
     </main>
-
-    <script src="js/loader.js"></script>
-    <script src="js/app.js"></script>
-    <script src="js/nav.js"></script>
-    <script src="js/typing.js"></script>
+    <footer class="footer text-1 hf">
+      <p>Built slowly, with curiosity. © 2026 Achyy</p>
+    </footer>
+    <script type="module" src="./src/assets/javascript/script.js"></script>
   </body>
 </html>

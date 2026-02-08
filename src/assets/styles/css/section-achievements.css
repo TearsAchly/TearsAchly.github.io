@@ -1,0 +1,213 @@
+section.section-achievements div.container {
+  padding: 1rem;
+  padding: 3% 9%;
+}
+
+.refresh-btn.github,
+.refresh-btn {
+  padding: 8px 14px;
+  border-radius: 6px;
+  font-size: 2rem;
+  margin-top: 2rem;
+  width: 100%;
+  display: none;
+}
+
+.refresh-btn.github:hover {
+}
+
+.refresh-btn.github:active {
+}
+
+.refresh-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.h2-title-repo-section {
+  font-size: 2rem;
+  margin: 2rem 0;
+}
+
+.repo-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+  gap: 2rem;
+}
+
+.repo-card.github {
+  border-radius: 8px;
+  padding: 16px;
+  font-size: 1.4rem;
+  transition: border 0.2s ease;
+}
+
+.repo-card.github:hover {
+}
+
+.repo-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 6px;
+}
+
+.repo-name {
+  font-size: 1.8rem;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.repo-name:hover {
+}
+
+.repo-desc {
+  min-height: 8vh;
+  font: 0.8rem;
+  margin: 10px 0 2rem;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.footer-repo-wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.repo-meta,
+.repo-actions {
+  display: flex;
+  text-decoration: none;
+  gap: 0.5em;
+  font-size: 1.2rem;
+  flex-wrap: wrap;
+}
+
+.lang {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.education-nonformal {
+}
+
+.education-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(35rem, 1fr));
+  gap: 2rem;
+}
+
+.education-item {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  font-size: 1.4rem;
+  border-radius: 0.8rem;
+  gap: 1rem;
+}
+
+.footer-repo-wrapper {
+  margin-top: auto;
+}
+
+.wrapper-wakatime {
+  border-radius: 1rem;
+}
+.wrapper-wakatime-right {
+  width: 100%;
+  margin-top: auto;
+  padding: 0.8rem;
+}
+
+.wrapper-title-right {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+
+.h2-title-wakatime-right {
+  font-size: 1.5rem;
+}
+
+.bar {
+  width: 100%;
+  height: 9px;
+  border-radius: 9999px;
+  overflow: hidden;
+  display: flex;
+  margin-bottom: 16px;
+}
+
+.seg {
+  height: 100%;
+}
+
+.status {
+  font-size: 14px;
+  padding: 6px 0;
+}
+
+#status.status.error {
+  font-weight: 700;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(24vh, 1fr));
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 1rem;
+  line-height: 2rem;
+  font-size: 13px;
+  min-width: 0;
+}
+
+.dot {
+  width: 10px;
+  height: 10px;
+  gap: 1rem;
+  margin: 0 0 0 1rem;
+  border-radius: 999px;
+  flex: 0 0 auto;
+  background: #9ca3af;
+}
+
+.name {
+  font-weight: 600;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.time {
+  margin-left: auto;
+  font-variant-numeric: tabular-nums;
+  flex: 0 0 auto;
+}
+
+.waka-toggle {
+  margin-top: 14px;
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 12px;
+  cursor: pointer;
+  font-weight: 700;
+  transition: 0.2s ease;
+}
