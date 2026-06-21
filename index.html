@@ -1,17 +1,76 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>My Website</title>
-    <link rel="stylesheet" href="./style.css">
-    <link rel="icon" href="./favicon.ico" type="image/x-icon">
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/svg+xml" href="/src/images/favicon.svg" />
+    <title>TearsAchly</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+    />
+    <link rel="stylesheet" href="src/assets/styles/css/styles.css" />
   </head>
-  <body>
-    <main>
-        <h1>Welcome to My Website</h1>  
-    </main>
-    <script src="index.js"></script>
+
+  <body class="body">
+    <!-- LOADER -->
+    <div id="page-loader" class="page-loader">
+      <img
+        id="logo-loading"
+        class="logo-loading"
+        src="https://github.githubassets.com/assets/mona-loading-dark-7701a7b97370.gif"
+        alt="Loading..."
+      />
+    </div>
+
+    <!-- PAGE CONTENT -->
+    <div id="page-content">
+      <header class="header hf">
+        <button
+          id="theme-toggle"
+          class="btn link border"
+          type="button"
+        ></button>
+
+        <button id="menu-toggle" class="menu-toggle nav-btn-toggle border link">
+          <i class="fa fa-bars"></i>
+        </button>
+
+        <nav class="navbar">
+          <ul class="navbar-lists">
+            <li class="navbar-item">
+              <button class="nav-link-btn active link border" data-page="home"> <i class="fa-solid fa-book-open"></i>
+                Overview
+              </button>
+            </li>
+
+            <li class="navbar-item">
+              <button class="nav-link-btn link border" data-page="repositories"> <i class="fa-solid fa-book"></i>
+                Repositories
+              </button>
+            </li>
+            
+            <li class="navbar-item">
+              <button class="nav-link-btn link border" data-page="certificates"> <i class="fa-solid fa-certificate"></i>
+                Certificates
+              </button>
+            </li>
+          </ul>
+        </nav>
+      </header>
+
+      <main class="main" id="main">
+        <section class="section-home active" id="home"></section>
+        <section class="section-repositories" id="repositories"></section>
+         <section class="section-certificates" id="certificates"></section>
+        <section class="section-notes" id="notes"></section>
+      </main>
+
+      <footer class="footer text-1 hf">
+        <p>Built slowly, with curiosity. © 2026 Achyy</p>
+      </footer>
+    </div>
+
+    <script type="module" src="./src/assets/javascript/script.js"></script>
   </body>
 </html>
