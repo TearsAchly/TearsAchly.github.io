@@ -7,6 +7,7 @@ import {
 import { loadWakaTimeWidget } from "./wakatime.js";
 import { initThemeToggle } from "./theme.js";
 import { initSidebarNavigation } from "./nav.js";
+import { loadTechStack  } from './techstack.js';
 
 /* =========================
  * Init Global
@@ -100,6 +101,7 @@ export const initSPA = () => {
         loadWakaTimeWidget();
         await loadReadme();
         await loadProfile();
+        await loadTechStack();
         break;
 
       case "repositories":
@@ -188,3 +190,8 @@ export const initSPA = () => {
     console.error
   );
 };
+
+const yearElement = document.getElementById("footer-year");
+if (yearElement) {
+  yearElement.textContent = new Date().getFullYear();
+}

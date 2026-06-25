@@ -140,13 +140,17 @@ html {
   scrollbar-width: none;
 }
 
+hr {
+width:100%
+}
+
 .header {
   position: relative;
   top: 0;
   left: 0;
   right: 0;
   line-height: 4em;
-  padding: 1.5rem 9%;
+  padding: .5rem 9%;
   display: flex;
   justify-content: space-between;
   z-index: 99999;
@@ -176,7 +180,7 @@ nav.active {
 }
 
 .nav-link-btn {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   text-decoration: none;
   font-weight: 700;
   border: none;
@@ -257,5 +261,4 @@ section.active {
 .footer {
   text-align: center;
   line-height: 4em;
-  font-size: 1.5rem;
 }

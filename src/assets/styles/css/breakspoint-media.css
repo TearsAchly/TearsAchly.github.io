@@ -2,8 +2,7 @@
   .wrapper-left,
   .wrapper-right,
   .wrapper-title-left,
-  .social-items-left,
-  .wrapper-about-right {
+  .social-items-left {
     border: none;
     padding: 1rem;
   }
@@ -15,10 +14,13 @@
 }
 
 @media (max-width: 767.98px) {
+div.wrapper-wakatech {
+flex-direction: column;
+}
 }
 
 @media (max-width: 810px) {
-  section.section-home div.container {
+  section.section-home div.container  {
     flex-direction: column;
   }
 

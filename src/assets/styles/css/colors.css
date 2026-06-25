@@ -2,6 +2,7 @@
 
 :root {
   --bg: #0d1117;
+   --badge-bg: #f3f4f6;
   --hf: #010409;
   --link: #58a6ff;
   --border: #30363d;
@@ -11,6 +12,7 @@
 
 html[data-theme="light"] {
   --bg: #ffffff;
+  --badge-bg: #161b22;
   --hf: #f6f8fa;
   --link: #0969da;
   --border: #d0d7de;

@@ -5,6 +5,8 @@ export const loadProfile = async () => {
   const name = document.getElementById("gh-name");
   const login = document.getElementById("gh-login");
   const bio = document.getElementById("gh-bio");
+  const location = document.getElementById("gh-location");
+  const company = document.getElementById("gh-company");
 
   if (!avatar || !name || !login || !bio) return;
 
@@ -28,6 +30,12 @@ export const loadProfile = async () => {
 
     login.textContent =
       user.login + " · he/him";
+    
+    location.textContent =
+       `  ` + user.location || " Unknown";
+    
+    company.textContent =
+    user.company || " Independent";
 
     bio.textContent =
       user.bio || "No bio available";

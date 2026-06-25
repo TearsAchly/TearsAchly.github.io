@@ -5,7 +5,7 @@
 const WAKATIME_SHARE_URL =
     "https://wakatime.com/share/@TearsAchly/5a447997-df2d-484d-8c5a-59577fe2562c.json";
 
-const DEFAULT_LIMIT = 18;
+const DEFAULT_LIMIT = 5;
 const BAR_LIMIT = 99999;
 
 // ==============================
@@ -87,6 +87,7 @@ const renderList = (langs, listEl, showAll) => {
     items.forEach((l) => {
         const row = document.createElement("div");
         row.className = "item";
+        
 
         const dot = document.createElement("span");
         dot.className = "dot";
@@ -99,6 +100,7 @@ const renderList = (langs, listEl, showAll) => {
         const time = document.createElement("span");
         time.className = "time text-1";
         time.textContent = l.text || "-";
+        
 
         row.appendChild(dot);
         row.appendChild(name);
@@ -116,7 +118,7 @@ const renderTotal = (langs, totalEl) => {
         0,
     );
 
-    totalEl.textContent = `SINCE DEC 17 2023 - Total: ${formatTotalSeconds(totalSeconds)}`;
+    totalEl.textContent = `All time Total: ${formatTotalSeconds(totalSeconds)}`;
 };
 
 // ==============================
@@ -130,11 +132,23 @@ const renderWakaTime = (data, selectors) => {
     const toggleEl = document.querySelector(selectors.toggle);
 
     if (!barEl || !statusEl || !listEl) return;
+    
+    const hiddenLanguages = [
+  "Other",
+  "Text",
+  "JSON",
+  "Desktop file",
+  "Image (jpeg)",
+  "Image (png)",
+  "zip"
+];
 
-    const langs = data?.data || [];
+const langs = (data?.data || []).filter(
+  (lang) => !hiddenLanguages.includes(lang.name)
+);
     if (!langs.length) {
         statusEl.classList.add("error", "text-muted");
-        statusEl.textContent = "No WakaTime data.";
+        statusEl.textContent = "📊 No coding activity available.";
         return;
     }
 
@@ -195,7 +209,7 @@ export const loadWakaTimeWidget = async ({
     } catch (err) {
         if (statusEl) {
             statusEl.classList.add("error", "text-muted");
-            statusEl.textContent = "Gagal load WakaTime.";
+            statusEl.textContent = "📊 No coding activity available.";
         }
     }
 };

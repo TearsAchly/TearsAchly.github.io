@@ -130,32 +130,46 @@ section.section-achievements div.container {
   margin-top: auto;
 }
 
+.wrapper-wakatech {
+display:flex;
+width:100%;
+gap:1rem;
+} 
+
 .wrapper-wakatime {
   border-radius: 1rem;
+  width:100%;
+  padding:.5rem;
 }
 .wrapper-wakatime-right {
   width: 100%;
   margin-top: auto;
   padding: 0.8rem;
+  
 }
 
 .wrapper-title-right {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  gap: 12px;
-  margin-bottom: 14px;
+}
+.waka-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Membuat teks sejajar secara vertikal */
+  width: 100%; 
 }
 
 .title-wakatime {
   padding-bottom: 3%;
 }
 
-.h2-title-wakatime-right {
-  font-size: 1.5rem;
+.h2-title-wakatime {
+  padding: 1rem .5rem;
+  font-size:1.5rem;
 }
 
-.bar {
+#bar {
   width: 100%;
   height: 9px;
   border-radius: 9999px;
@@ -215,12 +229,51 @@ section.section-achievements div.container {
   flex: 0 0 auto;
 }
 
-.waka-toggle {
-  margin-top: 14px;
-  width: 100%;
-  padding: 10px 12px;
-  border-radius: 12px;
+#wakaToggle {
+  margin-top: .75rem;
+  padding: .4rem .8rem;
+  border-radius: .4rem;
+  border: 1px solid var(--border-color);
+  background: transparent;
+  color: var(--link);
   cursor: pointer;
-  font-weight: 700;
-  transition: 0.2s ease;
+}
+
+#wakaToggle:hover {
+  background: rgba(255,255,255,.05);
+}
+
+.wrapper-techstack {
+  width: 100%;
+  padding: 0.8rem;
+  border-radius: 1rem;
+}
+
+#tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: .5rem;
+  flex-direction:column;
+}
+
+
+.tech-category {
+  font-size: 1.4rem;
+  margin-bottom: 0.7rem;
+  margin-top: 1rem;
+  color: var(--text-muted);
+}
+
+.tech-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.tech-badge {
+  padding: 0.4rem 0.8rem;
+  border-radius: 999px;
+  font-weight:bold;
+  font-size:1.1rem;  
+
 }

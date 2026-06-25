@@ -2,7 +2,6 @@
   <div class="wrapper-left border">
     <div class="wrapper-photo">
       <img id="gh-avatar" class="photo" src="/src/images/me.jpg" alt="" />
-      <span class="status-photo">🤔💡</span>
     </div>
     <div class="wrapper-title-left">
       <h1 id="gh-name" class="h1-title-home-left text-1"></h1>
@@ -11,17 +10,22 @@
 
       <p id="gh-bio" class="p-title-home-left text-1"></p>
     </div>
+    <hr class="border">
     <ul class="social-items-left">
       <li class="social-item-left">
         <a href="" target="blank"
           ><i class="fa-solid fa-location-dot text-muted"></i
-          ><span class="link-text-left text-1"> Indonesia</span></a
+          ><span id="gh-location" class="link-text-left text-1">
+            loading ...</span
+          ></a
         >
       </li>
       <li class="social-item-left">
         <a href="" target="blank"
           ><i class="fa-solid fa-building text-muted"></i
-          ><span class="link-text-left text-1"> - </span></a
+          ><span id="gh-company" class="link-text-left text-1">
+            loading ...
+          </span></a
         >
       </li>
       <li class="social-item-left">
@@ -59,6 +63,30 @@
       <p id="gh-readme" class="text-home-right text-muted">
         Want to know more about me? let's be friends :3
       </p>
+    </div>
+    <div class="wrapper-wakatech">
+      <div class="wrapper-techstack border">
+        <div class="wrapper-title-right">
+          <h2 class="h2-title-wakatime text-1">Tech Stack</h2>
+        </div>
+
+        <div id="tech-stack"></div>
+      </div>
+
+      <!-- WAKATIME -->
+      <div class="wrapper-wakatime border">
+        <div class="waka-header">
+          <h2 class="h2-title-wakatime text-1">WakaTime Stats</h2>
+          <span id="total" class="text-muted"></span>
+        </div>
+
+        <div id="bar" class="waka-bar"></div>
+
+        <p id="status" class="text-muted">Loading...</p>
+
+        <div id="list" class="waka-list"></div>
+        <button id="wakaToggle" class="waka-btn">Show More</button>
+      </div>
     </div>
   </div>
 </div>
