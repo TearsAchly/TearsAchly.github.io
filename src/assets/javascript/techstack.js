@@ -64,7 +64,7 @@ export const loadTechStack = async () => {
               color === "rgb(0, 0, 0)" ||
               color === "#000000"
             ) {
-              color = "#74c0fc";
+              color = "#8b949e";
             }
 
             badge.style.border =

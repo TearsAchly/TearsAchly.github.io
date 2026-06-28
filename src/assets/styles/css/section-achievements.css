@@ -275,5 +275,6 @@ gap:1rem;
   border-radius: 999px;
   font-weight:bold;
   font-size:1.1rem;  
+  background-color:var(--badge-bg)
 
 }

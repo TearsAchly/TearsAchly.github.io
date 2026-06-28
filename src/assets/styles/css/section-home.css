@@ -3,7 +3,7 @@ section.section-home div.container {
   flex-grow: 1;
   align-items: stretch;
   min-height: calc(100vh - 5rem);
-  padding: 3% 9%;
+  padding: 3% 5%;
   gap: 2rem;
 }
 
@@ -127,5 +127,15 @@ li.social-item-left a span:hover {
 }
 
 .text-home-right {
-  font-size: 1.5rem;
+  font-size: 1.4rem;
+}
+
+.wrapper-bot {
+  width: 100%;
+  flex: 1;
+}
+
+pre {
+padding:.5rem;
+border-radius:.5rem;
 }

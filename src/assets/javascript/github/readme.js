@@ -1,8 +1,7 @@
 import { GITHUB_USER } from "./config.js";
 
 export const loadReadme = async () => {
-  const container =
-    document.getElementById("gh-readme");
+  const container = document.getElementById("gh-readme");
 
   if (!container) return;
 
@@ -14,19 +13,19 @@ export const loadReadme = async () => {
       }
     );
 
-    if (!res.ok) {
-      throw new Error("README not found");
-    }
+    if (!res.ok) throw new Error("README not found");
 
-    const markdown =
-      await res.text();
+    const markdown = await res.text();
 
-    container.innerHTML = markdown
-      .replace(/\n/g, "<br>");
+    // Ambil isi code block pertama
+    const match = markdown.match(/```(?:\w+)?\n([\s\S]*?)```/);
+
+    container.textContent = match
+      ? match[1].trim()
+      : markdown;
+
   } catch (err) {
     console.error(err);
-
-    container.innerHTML =
-      "Failed to load README.";
+    container.textContent = "Failed to load README.";
   }
 };

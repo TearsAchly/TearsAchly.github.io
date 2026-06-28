@@ -2,22 +2,24 @@
 
 :root {
   --bg: #0d1117;
-   --badge-bg: #f3f4f6;
+  --badge-bg: #161b22;
   --hf: #010409;
   --link: #58a6ff;
   --border: #30363d;
   --text-1: #ffffff;
   --text-muted: #8b949e;
+  --pre-col:#262c36;
 }
 
 html[data-theme="light"] {
   --bg: #ffffff;
-  --badge-bg: #161b22;
+  --badge-bg: #f5f6f7;  
   --hf: #f6f8fa;
   --link: #0969da;
   --border: #d0d7de;
   --text-1: #0d1117;
   --text-muted: #57606a;
+  --pre-col:#f6f8fa;
 }
 
 /* ================= BASE ================= */
@@ -25,6 +27,10 @@ html[data-theme="light"] {
 body {
   background: var(--bg);
   color: var(--text-1);
+}
+
+pre {
+background-color:var(--pre-col);
 }
 
 /* smooth transition */
